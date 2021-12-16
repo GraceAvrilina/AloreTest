@@ -1,0 +1,25 @@
+<div>
+    <h1 mat-dialog-title>Add a Segment</h1>
+  <div mat-dialog-content>
+    <div>
+      <p>Name*</p>
+      <input type="text" placeholder="Search for a table or a segment" [(ngModel)]="datas.name">
+    </div>
+    <div >
+      <p>Icon</p>
+      <input type="text" matInput [(ngModel)]="datas.icon" [ngModelOptions]="{standalone: true}"/>
+      <button class="emo" (click)="setemoji()">😀</button>
+       <br>
+       
+      <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible"  (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+    </div>
+    <div>
+        <textarea placeholder="Type a description" type="text" name="textarea" [(ngModel)]="datas.desc"></textarea>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button class="submit" mat-button mat-dialog-close (click)="submitDialog()" [disabled]="datas.name==''" >Save</button>
+    <button class="cancel" mat-button mat-dialog-close (click)="closeDialog()">Cancel</button>
+  </div>
+  
+  </div>

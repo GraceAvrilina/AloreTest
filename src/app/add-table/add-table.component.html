@@ -1,0 +1,27 @@
+<div>
+  <h1 mat-dialog-title>Add a table</h1>
+<div mat-dialog-content>
+  <div>
+    <p>Name*</p>
+    <input type="text" placeholder="Search for a table or a segment" [(ngModel)]="datas.name">
+  </div>
+  <div >
+    <p>Icon</p>
+    <input type="text" matInput [(ngModel)]="datas.icon" [ngModelOptions]="{standalone: true}"/>
+    <button class="emo" (click)="setemoji()">😀</button>
+     <br>
+     
+    <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible"  (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+  </div>
+  <mat-form-field>
+    <input class="colorbox" matInput [ngxMatColorPicker]="picker" [(ngModel)]="datas.color" [disabled]="disabled">
+    <ngx-mat-color-toggle class="colorlogo" matSuffix [for]="picker"></ngx-mat-color-toggle>
+    <ngx-mat-color-picker #picker [touchUi]="touchUi" [color]="color"></ngx-mat-color-picker>
+</mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="submit" mat-button mat-dialog-close (click)="submitDialog()" [disabled]="datas.name==''" >Save</button>
+  <button class="cancel" mat-button mat-dialog-close (click)="closeDialog()">Cancel</button>
+</div>
+
+</div>

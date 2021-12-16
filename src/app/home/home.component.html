@@ -1,0 +1,60 @@
+<div id="content">
+    <div class="bg">
+        <div class="top">
+            <mat-icon> insert_drive_file</mat-icon>
+        </div>
+        <div class="bottom">
+            <div><mat-icon>dashboard</mat-icon></div>
+            <div><mat-icon>notifications</mat-icon></div>
+            <div><mat-icon>account_circle</mat-icon></div>
+        </div>
+    </div>
+    <div class="bg2">
+        <h1>Prospector</h1>
+        <input type="text" placeholder="Search for a table or a segment">
+
+        <h3>Segments</h3>
+        <ng-container *ngFor="let val of segments">
+            <p>{{val.icon}} {{val.name}} </p>
+        </ng-container>
+        <!-- <p>😀 Segment 1</p>
+        <p>👍 Segment 2</p>
+        <p>😁 Segment 3</p> -->
+        <div>
+            <input type="submit" value="+ Add a segment" (click)="openDialogSegment()">
+        </div>
+    </div>
+    <div class="bg3">
+        <div class="rightIcon">
+            <div class="subrightIcon">
+                <mat-icon>list</mat-icon> <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+            <div><mat-icon>cake</mat-icon></div>
+            <div><mat-icon>school</mat-icon></div>
+            <div><mat-icon>notification_important</mat-icon></div>
+            <div><mat-icon>cloud_circle</mat-icon></div>
+        </div>
+        <hr>
+        <div *ngFor="let item of segments">
+            <div>
+                <h1>{{item.icon}} {{item.name}} </h1> <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <div>
+            
+        </div>
+        <ng-container *ngFor="let vals of table">
+            <div class="box" [ngStyle]="{'border-color': '#'+vals.color.hex}" >
+                <p class="pemo">{{vals.icon}} </p>
+                <p class="pname">{{vals.name}}</p>
+            </div>
+        </ng-container>
+        <!-- <div> -->
+            <div class="boxadd">
+                <p (click)="openDialog()">+</p>
+            </div>
+
+        <!-- </div> -->
+    </div>        
+</div>
